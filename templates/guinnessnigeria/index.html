@@ -1,0 +1,69 @@
+ {% extends 'base.html' %}
+{% load poll_widgets %}
+
+{% block content %}
+    <div class="promo">
+        <ul id="slider">
+            {% for banner in banners %}
+                <li>
+                    <img src="{{ banner.get_1400x522_url }}" />
+                    <div class="text">
+                        <h1><span>{{ banner.description|safe }}</span></h1>
+                        {% comment %}<h2><span>Posted: {{ banner.created|date:"j F" }}</span></h2>{% endcomment %}
+                        <p><a href="{{ banner.get_url }}">Read More</a></p>
+                    </div>
+                </li>
+            {% empty %}
+                <li>Please load images via the admin.</li>
+            {% endfor %}
+        </ul>
+    </div><!--/Promo-->
+
+    <div id="brands">
+        <div class="container">
+            <h2>Our Brands<a href="{% url "brand_list" 'all' %}">View Our Brands Section &raquo;</a></h2>
+            <ul>
+                {% for brand in brands %}
+                    <li>
+                        <a href="{% url "brand_detail" brand.slug %}"><img src="{{ brand.get_41x142_url }}" /><br />{{ brand.title }}</a>
+                    </li>
+                {% empty %}
+                    <li>Please add brands via the admin.</li>
+                {% endfor %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div><!--/Brands-->
+
+    <div id="interact">
+        <div class="container">
+            <div class="third">
+                <h2>News &amp; Media</h2>
+                {% include 'news_and_media/includes/press_release_list.html' %}
+            </div>
+            <div class="third">
+                <h2>Investor Centre</h2>
+                <div class="stock">
+                    <p class="stock_code"><strong>NSE:</strong> Guinness</p>
+                    <p class="stock_price">
+                        <span>{{ stock_ticker.current_stock_value|floatformat:"2" }}</span> | 
+                        <span class="{{ stock_ticker.percentage_difference_color }}">{{ stock_ticker.percentage_difference|floatformat:"2" }}%</span>
+                    </p>
+                    <p class="stock_update">Updated: {{ stock_ticker.last_updated|date:"j M Y" }}</p>
+                </div>
+                <ul class="reports">
+                    {% for stock_report in stock_reports %}
+                        <li><a target="_blank" href="{{ stock_report.file.url }}">{{ stock_report.title }}</a></li>
+                    {% empty %}
+                        <li>There are no stock reports to list</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="third">
+                <h2>Opinion Poll</h2>
+                {#{% poll %}#}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div><!--/Interact-->
+{% endblock %}

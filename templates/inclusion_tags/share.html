@@ -1,0 +1,14 @@
+<div class="share">
+	{% if social_media %}
+		{% if social_media.facebook_url %}
+	    	<a href="{{ social_media.facebook_url }}" class="fb"></a>
+	    {% endif %}
+	    {% if social_media.twitter_url %}
+	    	<a href="{{ social_media.twitter_url }}" class="tw"></a>
+	    {% endif %}
+	    {% if social_media.youtube_url %}
+	    	<a href="{{ social_media.youtube_url }}" class="yt"></a>
+	    {% endif %}
+	{% else %}
+	{% endif %}
+</div><!--/Share-->

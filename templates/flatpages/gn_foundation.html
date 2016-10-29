@@ -1,0 +1,27 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block section %}section_foundation{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+	<h6>GN Foundation</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+	<ul>
+        <li {% ifequal flatpage.url '/gn-foundation/overview/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_overview %}">Overview</a></li>
+        <li {% ifequal flatpage.url '/gn-foundation/education/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_education %}">Education</a></li>
+        <li {% ifequal flatpage.url '/gn-foundation/health/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_health %}">Health</a></li>
+        <li {% ifequal flatpage.url '/gn-foundation/skills-for-life/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_skills_for_life %}">Skills for Life</a></li>
+        <li {% ifequal flatpage.url '/gn-foundation/sports/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_sports %}">Sports</a></li>
+        <li {% ifequal flatpage.url '/gn-foundation/water-of-life/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_water_of_life %}">Water of Life</a></li>
+        <li {% ifequal flatpage.url '/gn-foundation/programmes-and-initiatives/' %}class="on"{% endifequal%}><a href="{% url gn_foundation_programmes_and_initiatives %}">Programmes &amp; Initiatives</a></li>
+    </ul>
+{% endblock %}

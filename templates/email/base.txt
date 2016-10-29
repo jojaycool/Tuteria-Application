@@ -1,0 +1,9 @@
+{% block content %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+Kind regards
+The Guinness Nigeria Team
+info@guinness-nigeria.com
+
+Copyright Guinness Nigeria Plc. All Rights Reserved.

@@ -1,0 +1,48 @@
+{% extends 'flatpages/news_and_media.html' %}
+
+{% block title %}Press Releases{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>News &amp; Media</h1>
+            <p>&nbsp;</p>
+        </div>
+        <div class="title">
+            <span class="date">{{ object.publish_date_time|date:"j M Y" }}</span>
+            <h2>{{ object.title }}</h2>
+        </div>
+        <div class="subtitle">
+            <div class="sharing">
+                <!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style ">
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_tweet"></a>
+                <a class="addthis_button_pinterest_pinit"></a>
+                <a class="addthis_counter addthis_pill_style"></a>
+                </div>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-515ac0cf143056bc"></script>
+                <!-- AddThis Button END -->
+            </div>
+            <div class="hook"><a href="#comment_form">Comment</a></div>
+        </div>
+        <div class="body">
+        	<div class="listing rich">
+        		{{ object.content|safe }}
+        	</div>
+        	{% include 'commenting/comment_block.html' %}
+       	</div>
+	</div>
+{% endblock %}
+
+{% block sub_page_sidebar_nav_extra %}
+<h6>Recent Releases</h6>
+{% include 'news_and_media/includes/press_release_list.html' %}
+{% endblock %}
+
+{% block press_releases_on %}on{% endblock %}
+
+{% block bottom_js %}
+    {% include 'commenting/comment_script.html' %}
+{% endblock %}
+

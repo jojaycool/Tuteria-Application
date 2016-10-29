@@ -1,0 +1,26 @@
+{% extends 'flatpages/about.html' %}
+{% load unobase_tags %}
+
+{% block title %}Executives{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>About Us</h1>
+            <p>Nigeria is the largest Guinness Stout Market in the world by Net Sales Value (NSV)</p>
+        </div>
+        <div class="title">
+            <h2>Executives</h2>
+        </div>
+        <div class="body">
+			<div class="listing pub exec">
+				<img src="{{ object.get_118x118_url }}">
+		        <strong>{{ object.title }}</strong>
+		        <p>{{ object.position }}</p>
+		        <p>{{ object.description }}</p>
+		    </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block executives_on %}on{% endblock %}

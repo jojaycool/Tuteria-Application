@@ -1,0 +1,27 @@
+{% extends 'brands/brand_base.html' %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>Brands</h1>
+            <p>&nbsp;</p>
+        </div>
+        <div class="title">
+            <h2>{{ brand_category_name }}</h2>
+        </div>
+        <div class="body">
+        	{% for object in object_list %}
+	            <div class="brand_item">
+	                <a href="{% url brand_detail object.slug %}">
+	                    <div class="min_height"><img src="{{ object.get_73x326_url }}" /></div>
+	                    <h3>{{ object.title }}</h3>
+	                    <p>{{ object.description|safe }}</p>
+	                    <span></span>
+	                </a>
+	            </div>
+	        {% empty %}
+	        	<p>There are no brands to list</p>
+	    	{% endfor %}
+        </div>
+	</div>
+{% endblock %}

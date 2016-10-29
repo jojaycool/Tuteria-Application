@@ -1,0 +1,58 @@
+{% extends 'flatpages/investors.html' %}
+{% load unobase_tags %}
+
+{% block title %}Diageo Offer{% endblock %}
+
+{% block sub_page_content %}
+    <div class="content">
+        <div class="banner">
+            <h1>Investors</h1>
+            <p>Diageo Offer</p>
+        </div>
+        {% comment %} SHARES {% endcomment %}
+        {% if object_list %}
+            <div class="title">
+                <h2>Diageo Offer</h2>
+            </div>
+            <div class="body">
+                <div class="listing pub">
+                    <table class="share-summary">
+                        <tbody>
+                            <tr><td><p><strong>Date</strong></p></td><td>&nbsp;</td><td><p><strong># of UN shares</strong></p></td><td><p><strong>Average purchase price (NGN/share)</strong><strong></strong></p></td></tr>
+                            {% for object in object_list %}
+                            <tr>
+                                <td><p>{{ object.date|date:"d M Y" }}</p></td>
+                                <td>&nbsp;</td>
+                                <td><p>{{ object.shares }}</p></td>
+                                <td><p>{{ object.average_purchase_price }}</p></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% pagination page_obj %}
+            {% else %}
+            <div class="listing">
+                There are no shares to list.
+            </div>
+        {% endif %}
+
+        {% comment %} DOWNLOADS {% endcomment %}
+        {% if downloads %}
+            <div class="title">
+                <h2>Downloads</h2>
+            </div>
+            {% for download in downloads %}
+            <div class="listing pub">
+                <a href="{{ download.file.url }}" target="_blank">
+                    <img src="{{ STATIC_URL }}guinnessnigeria/img/icon_pdf.png">
+                    <strong>{{ download.title }}</strong>
+                </a>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block share_summary_on %}on{% endblock %}

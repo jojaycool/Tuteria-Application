@@ -1,0 +1,36 @@
+{% extends 'brands/brand_base.html' %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>Brands</h1>
+        </div>
+        <div class="title">
+            <h2>{% comment %}{{ brand_category_name }}{% endcomment %}</h2>
+            <a href="{% if object.category %}{% url brand_list slug %}{% else %}{% url brand_list 'all' %}{% endif %}" class="back_list"></a>
+        </div>
+        <div class="body brand">
+			<div class="brand_image"><img src="{{ object.get_127x474_url }}" /></div>
+			<div class="brand_content">
+			    <h3>{{ object.title }}</h3>
+			    <h4>{{ object.description|safe }}</h4>
+			    {{ object.content|safe }}
+			    <ul class="brand_social">
+			    	{% if object.facebook_url %}<li><a href="{{ object.facebook_url }}" class="bfb" target="_blank"></a></li>{% endif %}
+			    	{% if object.twitter_url %}<li><a href="{{ object.twitter_url }}" class="btw" target="_blank"></a></li>{% endif %}
+			    	{% if object.youtube_url %}<li><a href="{{ object.youtube_url }}" class="byt" target="_blank"></a></li>{% endif %}
+			    </ul>
+			    {% if object.associated_brands.count %}
+				    <div class="brand_associated">
+				        <h4>Associated Brands</h4>
+				        <p>
+				        	{% for associated_brand in object.associated_brands.all %}
+				            	<a href="{% url brand_detail associated_brand.slug %}"><img src="{{ associated_brand.get_41x142_url }}" /></a>
+				            {% endfor %}
+				        </p>
+				    </div>
+				{% endif %}
+			</div>
+	   </div>
+	</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block section %}section_invest{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+	<h6>Investors</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+	<ul>
+        <li {% ifequal flatpage.url '/investors/overview/' %}class="on"{% endifequal%}><a href="{% url investors_overview %}">Overview</a></li>
+        <li {% ifequal flatpage.url '/investors/corporate-governance/' %}class="on"{% endifequal%}><a href="{% url investors_corporate_governance %}">Corporate Governance</a></li>
+        <li {% ifequal flatpage.url '/investors/shareholders-services/' %}class="on"{% endifequal%}><a href="{% url investors_shareholders_services %}">Shareholders Services</a></li>
+        <li class="{% block financial_reports_on %}{% endblock %}"><a href="{% url investors_financial_reports %}">Annual Reports</a></li>
+        <li class="{% block financial_results_on %}{% endblock %}"><a href="{% url investors_financial_results %}">Financial Results</a></li>
+        <li class="{% block share_summary_on %}{% endblock %}"><a href="{% url investors_share_summary %}">Diageo Offer</a></li>
+        {% comment %}<li {% ifequal flatpage.url '/investors/marketing-our-brands/' %}class="on"{% endifequal%}><a href="{% url investors_marketing_our_brands %}">Marketing Our Brands</a></li>{% endcomment %}
+        {% comment %}<li {% ifequal flatpage.url '/investors/investor-contacts/' %}class="on"{% endifequal%}><a href="{% url investors_investor_contacts %}">Investor Contacts</a></li>{% endcomment %}
+    </ul>
+{% endblock %}

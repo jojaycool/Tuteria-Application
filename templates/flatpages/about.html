@@ -1,0 +1,33 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block section %}section_about{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+	<h6>About Us</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+	<ul>
+        <li {% ifequal flatpage.url '/about/overview/' %}class="on"{% endifequal%}><a href="{% url about_overview %}">Overview</a></li>
+        <li {% ifequal flatpage.url '/about/our-values/' %}class="on"{% endifequal%}><a href="{% url about_our_values %}">Our Values</a></li>
+        {% comment %}<li {% ifequal flatpage.url '/about/our-strategy/' %}class="on"{% endifequal%}><a href="{% url about_our_strategy %}">Our Strategy</a></li>{% endcomment %}
+        <li {% ifequal flatpage.url '/about/management/' %}class="on"{% endifequal%}><a href="{% url about_management %}">Management</a></li>
+        <li class="{% block board_of_directors_on %}{% endblock %}"><a href="{% url about_board_of_directors %}">Board of Directors</a></li>
+        <li class="{% block executives_on %}{% endblock %}"><a href="{% url about_executives %}">Executives</a></li>
+        <li {% ifequal flatpage.url '/about/history-moments/' %}class="on"{% endifequal%}><a href="{% url about_history_moments %}">History Moments</a></li>
+        <li {% ifequal flatpage.url '/about/awards/' %}class="on"{% endifequal%}><a href="{% url about_awards %}">Awards</a></li>
+        {% comment %}<li {% ifequal flatpage.url '/about/faqs/' %}class="on"{% endifequal%}><a href="{% url about_faqs %}">FAQs</a></li>{% endcomment %}
+        <li {% ifequal flatpage.url '/about/country-information/' %}class="on"{% endifequal%}><a href="{% url about_country_information %}">Country Information</a></li>
+        <li {% ifequal flatpage.url '/about/responsible-drinking/' %}class="on"{% endifequal%}><a href="{% url about_responsible_drinking %}">Responsible Drinking</a></li>
+        <li {% ifequal flatpage.url '/about/compliance-and-ethics/' %}class="on"{% endifequal%}><a href="{% url about_compliance_and_ethics %}">Compliance and Ethics</a></li>
+        <li {% ifequal flatpage.url '/about/safety-and-quality/' %}class="on"{% endifequal%}><a href="{% url about_safety_and_quality %}">Safety and Quality</a></li>
+    </ul>
+{% endblock %}

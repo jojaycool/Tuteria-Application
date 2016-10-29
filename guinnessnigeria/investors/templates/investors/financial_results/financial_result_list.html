@@ -1,0 +1,36 @@
+{% extends 'flatpages/investors.html' %}
+{% load unobase_tags %}
+
+{% block title %}Financial Results{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>Investors</h1>
+            <p>Financial Results</p>
+        </div>
+        <div class="title">
+            <h2>Financial Results</h2>
+        </div>
+        <div class="body">
+        	<div class="listing rich">
+        		<p>Find in the pages below any additional financial reports that may be of use, including our investor reports and transcripts from investor calls, notice of AGM meetings and scrip dividend forms amongst many others.</p>
+        	</div>
+			{% for object in object_list %}
+				<div class="listing pub">
+					<a href="{{ object.file.url }}" target="_blank">
+		                <img src="{{ STATIC_URL }}guinnessnigeria/img/icon_pdf.png">
+		                <strong>{{ object.title }}</strong>
+	                </a>
+	            </div>
+			{% empty %}
+				<div class="listing">
+					There are no financial results to list
+				</div>
+			{% endfor %}
+		</div>
+		{% pagination page_obj %}
+	</div>
+{% endblock %}
+
+{% block financial_results_on %}on{% endblock %}

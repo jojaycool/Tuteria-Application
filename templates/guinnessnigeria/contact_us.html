@@ -1,0 +1,52 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block section %}section_contact{% endblock %}
+
+{% block sub_page_outer_content %}
+    <div class="contact">
+        <div class="banner">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="title">
+            {% include 'includes/message_error_header.html' %}
+            <h2>Contact Us</h2>
+        </div>
+        <div class="divided">
+            <form id="frmContact" action="." method="post">
+                {% csrf_token %}
+                <h3>Enquiry Form</h3>
+                <div class="field">
+                    <label for="id_name">Your Name *</label>
+                    {{ form.name }}{{ form.name.errors }}
+                </div>
+                <div class="field">
+                    <label for="id_email">Your Email Address *</label>
+                    {{ form.email }}{{ form.email.errors }}
+                </div>
+                <div class="field">
+                    <label for="id_phone_number">Contact Number</label>
+                    {{ form.contact_number }}{{ form.contact_number.errors }}
+                </div>
+                <div class="field">
+                    <label for="id_subject">Subject</label>
+                    {{ form.subject }}{{ form.subject.errors }}
+                </div>
+                <div class="field">
+                    <label for="id_message">Message *</label>
+                    {{ form.message }}{{ form.message.errors }}
+                </div>
+                <div class="btns">
+                    <input type="submit" id="id_submit" value="Send" />
+                </div>
+            </form>
+            <div class="deets">
+                <h3>Contact Details</h3>
+                <p>The media office deals with all media enquiries relating to Guinness Nigeria's corporate and brand activities.</p>
+                <p class="upped">Guinness Nigeria Plc<br />24, Oba Akran Avenue<br />Ikeja, Lagos</p>
+                <p class="upped"><span>Tel:</span> 234 1 270 9100<br /><span>Fax:</span> 234 1 270 9338</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

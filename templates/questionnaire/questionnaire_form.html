@@ -1,0 +1,46 @@
+{% extends 'flatpages/competition.html' %}
+
+{% block title %}Competitions{% endblock %}
+
+{% block sub_page_content %}
+    <div class="content">
+        <div class="banner">
+            <h1>Competitions</h1>
+            <p>Enter now to win</p>
+        </div>
+        <div class="title">
+            <h2>{{ form.questionnaire_obj.title }}</h2>
+        </div>
+        <div class="body">
+            <div class="listing rich comp">
+                <form id="frmCompetition" action="." method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.is_hidden %}
+                            {{ field }}
+                        {% else %}
+                            <div class="field">
+                                <label>{{ field.label }}:</label>
+                                {{ field }}<div class="helptext">{{ field.help_text }}</div>{{ field.errors }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="btns">
+                        <input type="submit" id="id_submit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+    <h6>Competitions</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+    <ul>
+        <li class="on"><a href="{% url questionnaire_form form.questionnaire_obj.slug %}">Competition Details</a></li>
+        <li><a href="{% url questionnaire_rules form.questionnaire_obj.slug %}">Competition Rules</a></li>
+    </ul>
+{% endblock %}

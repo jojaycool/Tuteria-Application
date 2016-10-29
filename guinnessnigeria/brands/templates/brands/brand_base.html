@@ -1,0 +1,20 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}{{ brand_category_name }}{% endblock %}
+
+{% block section %}section_brands{% endblock %}
+
+{% block sub_page_sidebar_header %}
+	<h6>Brands</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+	<ul>
+		{% comment %}<li {% ifequal slug 'all' %}class="on"{% endifequal%}><a href="{% url brand_list 'all' %}">All</a></li>{% endcomment %}
+		{% for brand_category in brand_categories %}
+			<li {% ifequal slug brand_category.slug %}class="on"{% endifequal%}><a href="{% url brand_list brand_category.slug %}">{{ brand_category.name }}</a></li>
+		{% endfor %}
+		<li><a href="{% url brands_know_your_drink %}">Know Your Drink</a></li>
+        <li><a href="{% url brands_how_we_make_our_brands %}">How We Make our Brands</a></li>
+    </ul>
+{% endblock %}

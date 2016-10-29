@@ -1,0 +1,37 @@
+{% extends 'flatpages/competition.html' %}
+
+{% block title %}Competitions{% endblock %}
+
+{% block sub_page_content %}
+    <div class="content">
+        <div class="banner">
+            <h1>Competitions</h1>
+            <p>Enter now to win</p>
+        </div>
+        <div class="title">
+            <h2>Rules</h2>
+        </div>
+        <div class="body">
+            <div class="listing rich comp">
+                <h3>This is the heading</h3>
+                <p>This is some rules text</p>
+                <ul>
+                    <li>Rule 1</li>
+                    <li>Rule 2</li>
+                    <li>Rule 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+    <h6>Competitions</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+    <ul>
+        <li><a href="#">Competition Details</a></li>
+        <li class="on"><a href="#">Competition Rules</a></li>
+    </ul>
+{% endblock %}

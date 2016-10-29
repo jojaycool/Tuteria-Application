@@ -1,0 +1,43 @@
+{% if form %}
+	<div class="poll">
+	    <form id="frmPoll" action="{% url poll_answer %}" method="post">
+	    	{% csrf_token %}
+	        <p class="question">{{ form.poll.question }}:</p>
+	        {{ form.answers }}
+	        <div class="btns">
+	            <input type="submit" id="submit" value="Vote">
+	            <p><a href="javascript:show_poll_results();">See Results</a></p>
+	        </div>
+	    </form>
+	</div>
+	{% if results %}
+	<div class="poll_results">
+		<div class="content">
+			{% include 'poll/includes/poll_results.html' %}
+		</div>
+		<div class="btns">
+	        <p><a href="javascript:show_poll();">See Poll</a></p>
+	    </div>
+	</div>
+	{% endif %}
+	<script>
+		function show_poll(){
+			$('.poll_results').hide();
+			$('.poll').fadeIn();
+		}
+		
+		function show_poll_results(){
+			$('.poll').hide();
+			$('.poll_results').fadeIn();
+		}
+	
+		$(document).ready(function() {
+			$('#frmPoll').ajaxForm({success: function(responseText){
+				$('.poll_results .content').html(responseText);
+				show_poll_results();
+			}});
+		});
+	</script>
+{% else %}
+    <p>No active poll.</p>
+{% endif %}

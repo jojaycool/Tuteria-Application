@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load gn_tags %}
+
+{% block outer_content %}
+	<div id="wrap" class="sub {% block section %}{% endblock %}">
+		{% include 'includes/navigation.html' %}
+		{% share %}
+		
+		<div id="main">
+			<div class="container">
+				{% block sub_page_outer_content %}
+					{% block sub_page_content %}{% endblock %}
+					<div class="sidebar">
+		                {% block sub_page_sidebar_header %}{% endblock %}
+		                {% block sub_page_sidebar_nav %}{% endblock %}
+		                {% block sub_page_sidebar_nav_extra %}{% endblock %}
+		            </div><!--/sidebar-->
+		            <div class="pagination">
+		                <div class="top"><a href="#wrap">Go To Top</a></div>
+		                <div class="back"><a href="javascript: history.back(-1);">Back</a></div>
+		            </div><!--/pagination-->
+		        {% endblock %}
+	            <div class="clear"></div>
+			</div>
+		</div>
+		
+		{% include 'includes/footer.html' %}
+	</div>
+{% endblock %}
+

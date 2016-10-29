@@ -1,0 +1,12 @@
+{% extends 'email/base.html' %}
+
+{% block content %}
+You have received a contact message from <b>{{ name }}</b><br/>
+<br/>
+<b>Email:</b> {{ email }}<br /><br />
+<b>Contact number:</b> {{ contact_number }}<br /><br />
+<b>Subject:</b> {{ subject }}<br /><br />
+<b>Their message was:</b><br /><br />
+{{ message }}
+
+{% endblock %}

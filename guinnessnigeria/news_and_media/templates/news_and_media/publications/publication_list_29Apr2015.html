@@ -1,0 +1,44 @@
+{% extends 'flatpages/news_and_media.html' %}
+{% load unobase_tags %}
+
+{% block title %}Publications{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>News &amp; Media</h1>
+            <p>&nbsp;</p>
+        </div>
+        <div class="title">
+            <h2>Publications</h2>
+        </div>
+        <div class="body">
+		{% for object in object_list %}
+			<div class="listing pub">
+				<a href="{{ object.file.url }}" target="_blank">
+	                <img src="{{ STATIC_URL }}guinnessnigeria/img/icon_pdf.png">
+	                <span>{{ object.publication_date|date:"j M Y" }}</span>
+	                <strong>{{ object.title }}</strong>
+                </a>
+            </div>
+		{% empty %}
+		{% endfor %}
+		
+        <div class="listing">
+            <a href="/media/magazine/2014/3/" target="_blank">
+                <strong>GN The Pulse - March 2014 edition</strong>
+            </a>
+        </div>
+        <div class="listing">
+            <a href="/media/magazine/2014/2/" target="_blank">
+                <strong>GN The Pulse - December 2014 edition</strong>
+            </a>
+        </div>
+
+
+</div>
+		{% pagination page_obj %}
+	</div>
+{% endblock %}
+
+{% block publications_on %}on{% endblock %}

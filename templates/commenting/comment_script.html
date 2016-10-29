@@ -1,0 +1,24 @@
+<script>
+    var options = { target : '#comment_form_div', success : update_comment_list};
+    
+    function update_comment_list(responseText, statusText, xhr, $form)  { 
+        $('#comment_list_div').load("{% url comment_list content_type.id object.id %}");
+        $('#comment_form').ajaxForm(options);
+    }
+
+    $(document).ready(function() {
+        $('#comment_form_div').load("{% url comment_create content_type.id object.id %}", function() {
+            $('#comment_form').ajaxForm(options);
+        });
+        $('#comment_list_div').load("{% url comment_list content_type.id object.id %}");
+    });
+
+    function load_page_ajax(page) {
+        $('#comment_list_div').load("{% url comment_list content_type.id object.id %}?page="+page);
+    }
+    
+    function report(comment_id){
+        console.log(comment_id);
+        $('#comment_list_div').load("/comments/comment_report/{{ content_type.id }}/{{ object.id }}/" + comment_id);
+    }
+</script>

@@ -1,0 +1,9 @@
+{% for press_release in press_releases %}
+	<div class="item">
+	     <span class="date">{{ press_release.publish_date_time|date:"j M Y" }}</span><br />
+	     {{ press_release.content|safe|striptags|truncatewords:"10" }}
+	     <p><a href="{% url "news_and_media_press_releases_detail" press_release.pk %}">Read more &raquo;</a></p>
+	 </div>
+{% empty %}
+	<p>There are no press releases to list.</p>
+{% endfor %}

@@ -1,0 +1,34 @@
+{% extends 'flatpages/about.html' %}
+{% load unobase_tags %}
+
+{% block title %}Board of Directors{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>About Us</h1>
+            <p>Nigeria is the largest Guinness Stout Market in the world by Net Sales Value (NSV)</p>
+        </div>
+        <div class="title">
+            <h2>Board of Directors</h2>
+        </div>
+        <div class="body">
+		{% for object in object_list %}
+			<div class="listing pub">
+				<a href="{% url about_board_of_directors_detail object.slug %}">
+	                <img src="{{ object.get_118x118_url }}">
+	                <strong>{{ object.title }}</strong>
+	                <p>{{ object.position }}</p>
+	                <p>{{ object.description|truncatewords:"50" }}</p>
+                </a>
+            </div>
+		{% empty %}
+			<div class="listing">
+				There are no board members to list
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
+{% block board_of_directors_on %}on{% endblock %}

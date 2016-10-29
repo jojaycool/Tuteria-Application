@@ -1,0 +1,36 @@
+{% extends 'flatpages/investors.html' %}
+{% load unobase_tags %}
+
+{% block title %}Annual Reports{% endblock %}
+
+{% block sub_page_content %}
+    <div class="content">
+        <div class="banner">
+            <h1>Investors</h1>
+            <p>Annual Reports</p>
+        </div>
+        <div class="title">
+            <h2>Annual Reports</h2>
+        </div>
+        <div class="body">
+            <div class="listing rich">
+                <p>Any shareholder or debenture holder has the right to be furnished, on demand, free of charge, a copy of the company's last financial statements. The annual report and financial statement is available below to download. Alternatively, to request a printed copy, please write to the Company Secretary at 24, Oba Akran Avenue, Ikeja, Lagos, Nigeria.</p>
+            </div>
+            {% for object in object_list %}
+                <div class="listing pub">
+                    <a href="{{ object.file.url }}" target="_blank">
+                        <img src="{{ STATIC_URL }}guinnessnigeria/img/icon_pdf.png">
+                        <strong>{{ object.title }}</strong>
+                    </a>
+                </div>
+            {% empty %}
+                <div class="listing">
+                    There are no annual reports to list.
+                </div>
+            {% endfor %}
+        </div>
+        {% pagination page_obj %}
+    </div>
+{% endblock %}
+
+{% block financial_reports_on %}on{% endblock %}

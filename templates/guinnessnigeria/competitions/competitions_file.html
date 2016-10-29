@@ -1,0 +1,41 @@
+{% extends 'flatpages/competition.html' %}
+
+{% block title %}Competitions{% endblock %}
+
+{% block sub_page_content %}
+    <div class="content">
+        <div class="banner">
+            <h1>Competitions</h1>
+            <p>Enter now to win</p>
+        </div>
+        <div class="title">
+            <h2>Details</h2>
+        </div>
+        <div class="body">
+            <div class="listing rich comp">
+                <h3>This is the competition question</h3>
+                <form id="frmCompetition" action="." method="post">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label for="id_answer">Upload *</label>
+                        <input type="file" id="id_answer" value="" />
+                    </div>
+                    <div class="btns">
+                        <input type="submit" id="id_submit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+    <h6>Competitions</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+    <ul>
+        <li class="on"><a href="#">Competition Details</a></li>
+        <li><a href="#">Competition Rules</a></li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load unobase_tags %}
+
+{% include 'unobase/includes/message_error_header.html' %}
+
+{% for object in object_list %}
+	<div class="comment">
+		<p class="meta"><span>{{ object.submit_date }}</span> - <a href="javascript:report({{ object.id }});">Report</a></p>
+		<p>{{ object.comment }}</p>
+	</div><!--/comment-->
+{% endfor %}
+{% comment_pagination_ajax page_obj %}

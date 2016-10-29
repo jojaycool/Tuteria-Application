@@ -1,0 +1,31 @@
+{% extends 'flatpages/careers.html' %}
+{% load unobase_tags %}
+
+{% block title %}Vacancies{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>Careers</h1>
+            <p>Vacancies</p>
+        </div>
+        <div class="title">
+            <h2>Vacancies</h2>
+        </div>
+		{% for object in object_list %}
+			<div class="listing pub">
+				<a target="_blank" href="{{ object.external_url }}">
+					<strong>{{ object.title }}</strong>
+                	<span>{{ object.description }}</span>
+                </a>
+            </div>
+		{% empty %}
+			<div class="listing">
+				There are no vacancies to list
+			</div>
+		{% endfor %}
+		{% pagination page_obj %}
+	</div>
+{% endblock %}
+
+{% block vacancies_on %}on{% endblock %}

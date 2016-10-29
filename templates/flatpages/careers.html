@@ -1,0 +1,24 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block section %}section_careers{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+	<h6>Careers</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+	<ul>
+        <li {% ifequal flatpage.url '/careers/why-guinness-nigeria/' %}class="on"{% endifequal%}><a href="{% url careers_why_guinness_nigeria %}">Why Guinness Nigeria</a></li>
+        <li {% ifequal flatpage.url '/careers/working-with-guinness-nigeria/' %}class="on"{% endifequal%}><a href="{% url careers_working_with_guinness_nigeria %}">Working with Guinness Nigeria</a></li>
+        <li {% ifequal flatpage.url '/careers/how-to-apply/' %}class="on"{% endifequal%}><a href="{% url careers_how_to_apply %}">How to Apply</a></li>
+        {% comment %}<li class="{% block vacancies_on %}{% endblock %}"><a href="{% url careers_vacancies %}">Vacancies</a></li>{% endcomment %}
+    </ul>
+{% endblock %}

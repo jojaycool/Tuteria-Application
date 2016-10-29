@@ -1,0 +1,26 @@
+{% extends 'sub_page_base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block section %}section_news{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}
+
+{% block sub_page_sidebar_header %}
+	<h6>News &amp; Media</h6>
+{% endblock %}
+
+{% block sub_page_sidebar_nav %}
+	<ul>
+        <li class="{% block press_releases_on %}{% endblock %}"><a href="{% url news_and_media_press_releases %}">Press Releases</a></li>
+        <li class="{% block publications_on %}{% endblock %}"><a href="{% url news_and_media_publications %}">Guinness Magazine</a></li>
+        <li {% ifequal flatpage.url '/news-and-media/media-contact/' %}class="on"{% endifequal%}><a href="{% url news_and_media_media_contact %}">Media Contact</a></li>
+        {% comment %}<li {% ifequal flatpage.url '/news-and-media/news/' %}class="on"{% endifequal%}><a href="{% url news_and_media_news %}">Overview</a></li>{% endcomment %}
+        {% comment %}<li {% ifequal flatpage.url '/news-and-media/media-enquiries/' %}class="on"{% endifequal%}><a href="{% url news_and_media_media_enquiries %}">Media Enquiries</a></li>{% endcomment %}
+        {% comment %}<li {% ifequal flatpage.url '/news-and-media/overview/' %}class="on"{% endifequal%}><a href="{% url news_and_media_overview %}">Overview</a></li>{% endcomment %}
+    </ul>
+{% endblock %}

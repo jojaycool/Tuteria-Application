@@ -1,0 +1,31 @@
+{% extends 'flatpages/news_and_media.html' %}
+{% load unobase_tags %}
+
+{% block title %}Press Releases{% endblock %}
+
+{% block sub_page_content %}
+	<div class="content">
+		<div class="banner">
+            <h1>News &amp; Media</h1>
+            <p>&nbsp;</p>
+        </div>
+        <div class="title">
+            <h2>Press Releases</h2>
+        </div>
+		{% for object in object_list %}
+			<div class="listing pub">
+				<a href="{% url "news_and_media_press_releases_detail" object.pk %}">
+	                <span>{{ object.publish_date_time|date:"j M Y" }}</span>
+	                <strong>{{ object.title }}</strong>
+                </a>
+            </div>
+		{% empty %}
+			<div class="listing">
+				There are no press releases yet.
+			</div>
+		{% endfor %}
+		{% pagination page_obj %}
+	</div>
+{% endblock %}
+
+{% block press_releases_on %}on{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'email/base.txt' %}
+
+{% block content %}
+You have received a contact message from {{ name }}
+
+Email: {{ email }}
+
+Contact number: {{ contact_number }}
+
+Subject: {{ subject }}
+
+Their message was:
+{{ message }}
+
+{% endblock %}

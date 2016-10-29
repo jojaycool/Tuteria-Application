@@ -1,0 +1,98 @@
+{% load gn_tags %}
+
+<div id="footer-outer">
+    <div class="sitemap">
+        <div class="container">
+            <ul>
+                <li class="title">About Us</li>
+                <li><a href="{% url "about_overview" %}">Overview</a></li>
+                <li><a href="{% url "about_our_values" %}">Our Values</a></li>
+                {% comment %}<li><a href="{% url "about_our_strategy" %}">Our Strategy</a></li>{% endcomment %}
+                <li><a href="{% url "about_management" %}">Management</a></li>
+                <li><a href="{% url "about_board_of_directors" %}">Board of Directors</a></li>
+                <li><a href="{% url "about_executives" %}">Executives</a></li>
+                <li><a href="{% url "about_history_moments" %}">History Moments</a></li>
+                <li><a href="{% url "about_awards" %}">Awards</a></li>
+                {% comment %}<li><a href="{% url "about_faqs" %}">FAQs</a></li>{% endcomment %}
+                <li><a href="{% url "about_country_information" %}">Country Information</a></li>
+                <li><a href="{% url "about_responsible_drinking" %}">Responsible Drinking</a></li>
+                <li><a href="{% url "about_compliance_and_ethics" %}">Compliance and Ethics</a></li>
+                <li><a href="{% url "about_safety_and_quality" %}">Safety and Quality</a></li>
+            </ul>
+            <ul>
+                <li class="title">Our Brands</li>
+                <li><a href="{% url "brand_list" 'all' %}">All</a></li>
+                {% comment %}<li><a href="{% url "brand_list" 'our-local-brands' %}">Our Local Brands</a></li>{% endcomment %}
+                {% comment %}<li><a href="{% url "brand_list" 'our-global-brands' %}">Our Global Brands</a></li>{% endcomment %}
+                <li><a href="{% url "brand_list" 'spirits' %}">Spirits</a></li>
+                <li><a href="{% url "brand_list" 'beers' %}">Beers</a></li>
+                <li><a href="{% url "brand_list" 'ready-drink' %}">Ready-To-Drink</a></li>
+                <li><a href="{% url "brand_list" 'non-alcoholic' %}">Non-Alcoholic</a></li>
+                <li><a href="{% url "brand_list" 'know-your-drink' %}">Know Your Drink</a></li>
+                <li><a href="{% url "brand_list" 'how-we-make-our-brands' %}">How We Make Our Brands</a></li>
+            </ul>
+            <ul>
+                <li class="title">Investors</li>
+                <li><a href="{% url "investors_overview" %}">Overview</a></li>
+                <li><a href="{% url "investors_corporate_governance" %}">Corporate Governance</a></li>
+                <li><a href="{% url "investors_shareholders_services" %}">Shareholders Services</a></li>
+                <li><a href="{% url "investors_financial_reports" %}">Annual Reports</a></li>
+                <li><a href="{% url "investors_financial_results" %}">Financial Results</a></li>
+                <li><a href="{% url "investors_share_summary" %}">Diageo Offer</a></li>
+                {% comment %}<li><a href="{% url "investors_marketing_our_brands" %}">Marketing Our Brands</a></li>{% endcomment %}
+                {% comment %}<li><a href="{% url "investors_investor_contacts" %}">Investor Contacts</a></li>{% endcomment %}
+            </ul>
+            <ul>
+                <li class="title">News &amp; Media</li>
+                {% comment %}<li><a href="{% url "news_and_media_overview" %}">Overview</a></li>{% endcomment %}
+                {% comment %}<li><a href="{% url "news_and_media_news" %}">Overview</a></li>{% endcomment %}
+                <li><a href="{% url "news_and_media_press_releases" %}">Press Releases</a></li>
+                {% comment %}<li><a href="{% url "news_and_media_media_enquiries" %}">Media Enquires</a></li>{% endcomment %}
+                <li><a href="{% url "news_and_media_publications" %}">Guinness Magazine</a></li>
+                <li><a href="{% url "news_and_media_media_contact" %}">Media Contact</a></li>
+            </ul>
+            <ul>
+                <li class="title">Careers</li>
+                <li><a href="{% url "careers_why_guinness_nigeria" %}">Why Guinness Nigeria</a></li>
+                <li><a href="{% url "careers_working_with_guinness_nigeria" %}">Working with Guinness Nigeria</a></li>
+                <li><a href="{% url "careers_how_to_apply" %}">How to Apply</a></li>
+                {% comment %}<li><a href="{% url "careers_vacancies" %}">Vacancies</a></li>{% endcomment %}
+            </ul>
+            <ul>
+                <li class="title">GN Foundation</li>
+                <li><a href="{% url "gn_foundation_overview" %}">Overview</a></li>
+                <li><a href="{% url "gn_foundation_education" %}">Education</a></li>
+                <li><a href="{% url "gn_foundation_health" %}">Health</a></li>
+                <li><a href="{% url "gn_foundation_skills_for_life" %}">Skills for Life</a></li>
+                <li><a href="{% url "gn_foundation_sports" %}">Sports</a></li>
+                <li><a href="{% url "gn_foundation_water_of_life" %}">Water of Life</a></li>
+                <li><a href="{% url "gn_foundation_programmes_and_initiatives" %}">Programmes &amp; Initiatives</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div><!--/sitemap-->
+
+    <div id="footer"></div>
+
+    {% comment %}
+    <div class="base">
+        <div class="container">
+            <p>&copy; Guinness Nigeria PLC 2015</p>
+            <ul>
+                <li><a href="http://www.diageo.com/" target="_blank">Diageo.com</a></li>
+                <li><a href="http://www.drinkiq.com/">Drink Responsibly</a></li>
+                <li><a href="{% url "accessibility" %}">Accessibility</a></li>
+                <li><a href="{% url "privacy_policy" %}">Privacy Policy</a></li>
+                <li><a href="{% url "terms_and_conditions" %}">Terms &amp; Conditions</a></li>
+                <li><a href="{% url "contact_us" %}">Contact Us</a></li>
+                {% footer_share %}
+            </ul>
+        </div>
+    </div><!--/base-->
+    {% endcomment %}
+
+    <div class="sr">
+        <div class="container">Not For Sale to Persons Under the Legal Purchase Age. Drink Responsibly</div>
+    </div>
+</div><!--/Footer-->
+

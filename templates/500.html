@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Guinness Nigeria</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="/static/guinnessnigeria/img/guinness.ico" />
+    <link rel="stylesheet" href="/static/guinnessnigeria/css/style.css?v=1" />
+    <link rel="stylesheet" href="/static/guinnessnigeria/css/slider.css?v=1" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+    <script src="/static/guinnessnigeria/js/libs/jquery-1.7.2.min.js"></script>
+    <script src="/static/guinnessnigeria/js/libs/jquery.form.js"></script>
+    <script type="text/javascript">
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event:'gtm.js'
+            });
+            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K4M6HH');
+    </script>
+</head>
+<body>
+    <div id="wrap" class="sub {% block section %}{% endblock %}">
+        {% include 'includes/navigation.html' %}
+
+        <div id="main">
+            <div class="container">
+                  <div class="content">
+                    <div class="banner">
+                      <h1>Internal Server Error</h1>
+                    </div>
+                    <div class="title">
+                      <h2>Internal Server Error</h2>
+                    </div>
+                    <div class="body">
+                      <div class="listing">
+                        Our engineers have been notified, and are furiously working to fix the problem.
+                        <br /><br />
+                        Please <a href="/contact-us/">click here</a> to contact us.
+                      </div>
+                    </div>
+                  </div>
+                    <div class="sidebar">
+                        <h6>About Us</h6>
+                        <ul>
+                            <li {% ifequal flatpage.url '/about/overview/' %}class="on"{% endifequal%}><a href="{% url about_overview %}">Overview</a></li>
+                            <li {% ifequal flatpage.url '/about/our-values/' %}class="on"{% endifequal%}><a href="{% url about_our_values %}">Our Values</a></li>
+                            <li {% ifequal flatpage.url '/about/management/' %}class="on"{% endifequal%}><a href="{% url about_management %}">Management</a></li>
+                            <li class="{% block board_of_directors_on %}{% endblock %}"><a href="{% url about_board_of_directors %}">Board of Directors</a></li>
+                            <li class="{% block executives_on %}{% endblock %}"><a href="{% url about_executives %}">Executives</a></li>
+                            <li {% ifequal flatpage.url '/about/history-moments/' %}class="on"{% endifequal%}><a href="{% url about_history_moments %}">History Moments</a></li>
+                            <li {% ifequal flatpage.url '/about/awards/' %}class="on"{% endifequal%}><a href="{% url about_awards %}">Awards</a></li>
+                            <li {% ifequal flatpage.url '/about/country-information/' %}class="on"{% endifequal%}><a href="{% url about_country_information %}">Country Information</a></li>
+                            <li {% ifequal flatpage.url '/about/responsible-drinking/' %}class="on"{% endifequal%}><a href="{% url about_responsible_drinking %}">Responsible Drinking</a></li>
+                            <li {% ifequal flatpage.url '/about/compliance-and-ethics/' %}class="on"{% endifequal%}><a href="{% url about_compliance_and_ethics %}">Compliance and Ethics</a></li>
+                            <li {% ifequal flatpage.url '/about/safety-and-quality/' %}class="on"{% endifequal%}><a href="{% url about_safety_and_quality %}">Safety and Quality</a></li>
+                        </ul>
+                    </div>
+                    <div class="pagination">
+                        <div class="top"><a href="#wrap">Go To Top</a></div>
+                        <div class="back"><a href="javascript: history.back(-1);">Back</a></div>
+                    </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        {% include 'includes/footer.html' %}
+    </div>
+
+<script src="/static/guinnessnigeria/js/libs/jquery.anythingslider.min.js"></script>
+<script src="/static/guinnessnigeria/js/libs/jquery.validate.js"></script>
+<script src="/static/guinnessnigeria/js/scripts.js?v=1"></script>
+{% block bottom_js %}{% endblock %}
+</body>
+</html>

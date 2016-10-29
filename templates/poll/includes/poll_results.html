@@ -1,0 +1,11 @@
+{% include 'unobase/includes/message_error_header.html' %}
+<table>
+	{% for result in results %}
+		<tr>
+			<td>Answer {{ forloop.counter }}</td>
+			<td>
+				<div style="width: {{ result }}px;">{{ result }}%</div>
+			</td>
+		</tr>
+	{% endfor %}
+</table>
